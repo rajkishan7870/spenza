@@ -13,7 +13,7 @@ export const ProgressBar = () => {
                     <div className="bg-blue-900 h-2"></div>
                     <div className="flex items-start justify-start">
                         <div className="w-2 h-2 bg-blue-900 mt-1"></div>
-                        <span>&gt;$5K</span>
+                        <span>&gt;$1K</span>
                     </div>
                 </div>
 
@@ -22,7 +22,7 @@ export const ProgressBar = () => {
                     <div className="bg-blue-500 h-2"></div>
                     <div className="flex items-start justify-start">
                         <div className="w-2 h-2 bg-blue-500 items-center mt-1"></div>
-                        <span>$1K - $5K</span>
+                        <span>$750 - $1K</span>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@ export const ProgressBar = () => {
                     <div className="bg-blue-300 h-2"></div>
                     <div className="flex items-start justify-start">
                         <div className="w-2 h-2 bg-blue-300 mt-1"></div>
-                        <span>$500 - $1K</span>
+                        <span>$300 - $750</span>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@ export const ProgressBar = () => {
                     <div className="bg-blue-100 h-2"></div>
                     <div className="flex items-start justify-start">
                         <div className="w-2 h-2 bg-blue-100 mt-1"></div>
-                        <span>&lt;$500</span>
+                        <span>&lt;$300</span>
                     </div>
                 </div>
             </div>
