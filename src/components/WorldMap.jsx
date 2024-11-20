@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { colorData } from "../recoil/atom";
+import { useRecoilState } from "recoil";
 
 
 
 const WorldMap = () => {
+
+  const [colPerData, setColPerData] = useRecoilState(colorData)
 
 
   // useEffect(() => {
@@ -95,7 +99,7 @@ const WorldMap = () => {
   };
 
 
-  const totalData = mergedData.reduce((sum, item) => sum + item.data, 0);
+const totalData = mergedData.reduce((sum, item) => sum + item.data, 0);
 
 
 const updatedData = mergedData.map((item) => {
@@ -107,7 +111,31 @@ const updatedData = mergedData.map((item) => {
   };
 });
 
-console.log(updatedData); 
+const getColourAndPercentDict = (data)=>{
+
+  const colorPercentages = {};
+  data.forEach(item => {
+      const color = item.color;
+      const percentage = parseFloat(item.percentage);
+
+      if (colorPercentages[color]) {
+          colorPercentages[color] += percentage;
+      } else {
+          colorPercentages[color] = percentage;
+      }
+  });
+
+  return colorPercentages;
+
+}
+
+useEffect(()=>{
+
+  const colAndPerDict = getColourAndPercentDict(updatedData);
+
+  setColPerData(colAndPerDict);
+
+}, [])
 
   return (
     <MapContainer
